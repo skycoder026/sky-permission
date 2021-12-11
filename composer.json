@@ -1,0 +1,42 @@
+{
+    "name": "skycoder/sky-permission",
+    "description": "Sky Permission",
+    "homepage": "https://github.com/skycoder026/sky-permission",
+    "license": "MIT",
+    "keywords": [
+        "sky-permission",
+        "laravel-permission",
+        "roll-permission",
+        "permission-access",
+        "asmakash",
+        "akashcsem",
+        "skycoder"
+    ],
+    "authors": [
+        {
+            "name": "Skycoder",
+            "email": "akashcseuu026@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Skycoder\\SkyPermission\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Skycoder\\SkyPermission\\SkyPermissionServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "readme": "./readme.md",
+    "time": "2021-12-11",
+    "require": {
+        "php": "^7.2.5"
+    }
+}
