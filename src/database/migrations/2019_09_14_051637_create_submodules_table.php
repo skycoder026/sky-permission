@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateModulesTable extends Migration
+class CreateSubmodulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateModulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('modules', function (Blueprint $table) {
+        Schema::create('submodules', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->tinyInteger('status')->nullable()->default(1);
-            $table->integer('rank')->nullable()->default(999);
-            $table->tinyInteger('is_migrate')->default(0);
+            $table->unsignedBigInteger('module_id');
+
+            $table->foreign('module_id')->references('id')->on('modules')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateModulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules');
+        Schema::dropIfExists('submodules');
     }
 }

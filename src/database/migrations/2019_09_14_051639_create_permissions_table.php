@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateModulesTable extends Migration
+class CreatePermissionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateModulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('modules', function (Blueprint $table) {
+        Schema::create('permissions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->tinyInteger('status')->nullable()->default(1);
-            $table->integer('rank')->nullable()->default(999);
-            $table->tinyInteger('is_migrate')->default(0);
+            $table->string('slug')->unique();
+            $table->unsignedBigInteger('permission_group_id');
+            $table->tinyInteger('status')->default(1);
+
             $table->timestamps();
+
+            $table->foreign('permission_group_id')->references('id')->on('permission_groups')->onDelete('cascade');
         });
     }
 
@@ -30,6 +33,6 @@ class CreateModulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules');
+        Schema::dropIfExists('permissions');
     }
 }
