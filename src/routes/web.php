@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Skycoder\SkyPermission\Controllers\ModuleController;
+use Skycoder\SkyPermission\Controllers\PermissionController;
 use Skycoder\SkyPermission\Controllers\PermissionGroupController;
 use Skycoder\SkyPermission\Controllers\SubmoduleController;
 
@@ -12,7 +13,7 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'permission'], functi
     Route::resource('permission-groups', PermissionGroupController::class);
 
 
-    Route::resource('permissions', 'PermissionController');
+    Route::resource('permissions', PermissionController::class);
     Route::resource('permission-access', 'UserPermissionController');
 
 

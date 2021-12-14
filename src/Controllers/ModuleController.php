@@ -50,7 +50,7 @@ class ModuleController extends Controller
 
         try {
 
-            Module::create(['name' => $request->name]);
+            Module::create(['name' => $request->name, 'rank' => ($request->rank ?? 999)]);
 
             return redirect()->route('modules.index')->with('message', 'Module Create Successfull');
 
@@ -129,7 +129,7 @@ class ModuleController extends Controller
 
         try {
 
-            $module->update(['name' => $request->name]);
+            $module->update(['name' => $request->name, 'rank' => ($request->rank ?? 999)]);
 
             return redirect()->route('modules.index')->with('message', 'Module Update Successfull');
 

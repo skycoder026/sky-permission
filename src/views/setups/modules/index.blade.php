@@ -8,7 +8,7 @@
 @section('content')
 
 
-    @include('sky-permission::setups.modules.create')
+    @include('sky-permission::setups/modules/create')
 
 
 

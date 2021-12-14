@@ -24,7 +24,6 @@
                             <th>SL</th>
                             <th>Module</th>
                             <th>Submodule Name</th>
-                            <th>Slug</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -35,14 +34,13 @@
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ optional($submodule->module)->name }}</td>
                                 <td>{{ $submodule->name }}</td>
-                                <td>{{ $submodule->slug }}</td>
 
                                 <td class="text-center">
                                     <div class="btn-group btn-corner">
-                                        <a href="{{ route('submodules.edit', $submodule->id) }}" class="btn btn-xs btn-success" title="Edit">
+                                        <a href="{{ route('submodules.edit', $submodule->id) }}" class="btn btn-sm btn-success" title="Edit">
                                             <i class="fa fa-pencil-square-o"></i>
                                         </a>
-                                        <button type="button" onclick="delete_item(`{{ route('submodules.destroy', $submodule->id) }}`)" class="btn btn-xs btn-danger" title="Delete">
+                                        <button type="button" onclick="delete_item(`{{ route('submodules.destroy', $submodule->id) }}`)" class="btn btn-sm btn-danger" title="Delete">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </div>
@@ -62,11 +60,13 @@
 @endsection
 
 @section('js')
+
     <script src="{{ asset('assets/js/chosen.jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.dataTables.bootstrap.min.js') }}"></script>
 
 
+    <script src="{{ asset('assets/custom-js/chosen-box.js') }}"></script>
 
 
 
@@ -75,10 +75,9 @@
 
         jQuery(function ($) {
             $('#dynamic-table').DataTable({
-                "ordering": false,
-                "bPaginate": false,
-                "bPaginate": false,
-                "lengthChange": false,
+                "ordering": true,
+                "bPaginate": true,
+                "lengthChange": true,
                 "info": false
             });
         })

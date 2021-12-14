@@ -14,44 +14,62 @@
                    <div class="widget-main">
                        <form class="form-horizontal" action="{{ isset($module) ? route('modules.update', $module->id) : route('modules.store') }}" method="post">
 
-                           @csrf
+                            @csrf
 
 
-                           @if (isset($module))
-                               @method('PUT')
-                           @endif
+                            @if (isset($module))
+                                @method('PUT')
+                            @endif
 
 
-                           @include('partials._alert_message')
-
-
-
-                           <div class="row">
-
-                               <div class="form-group">
-                                   <label class="col-sm-3 control-label" for="form-field-1-1"> Module Name </label>
-                                   <div class="col-xs-12 col-sm-8 @error('name') has-error @enderror">
-                                       <input type="text" class="form-control" name="name"
-                                           value="{{ isset($module) ? $module->name : old('name')  }}" placeholder="Module Name">
-
-                                       @error('name')
-                                           <span class="text-danger">{{ $message }}</span>
-                                       @enderror
-                                   </div>
-                               </div>
+                            @include('partials._alert_message')
 
 
 
+                            <div class="row">
 
 
-                               <div class="form-group">
-                                   <label for="inputError" class="col-xs-12 col-sm-3 col-md-3 control-label"></label>
-                                   <div class="col-xs-12 col-sm-6">
-                                       <button type="submit" class="btn btn-success"> <i class="fa fa-save"></i> {{ isset($module) ? 'Update' : 'Save'}}</button>
-                                       <button class="btn btn-gray" type="Reset"> <i class="fa fa-refresh"></i> Reset </button>
-                                   </div>
-                               </div>
-                           </div>
+
+                                <!-- Name -->
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="form-field-1-1"> Module Name </label>
+                                    <div class="col-xs-12 col-sm-8 @error('name') has-error @enderror">
+                                        <input type="text" class="form-control" name="name"
+                                            value="{{ isset($module) ? $module->name : old('name')  }}" placeholder="Module Name">
+
+                                        @error('name')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+
+
+                                <!-- Rank -->
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="form-field-1-1"> Rank </label>
+                                    <div class="col-xs-12 col-sm-8 @error('rank') has-error @enderror">
+                                        <input type="text" class="form-control only-number" name="rank"
+                                            value="{{ isset($module) ? $module->rank : old('rank', 999)  }}" placeholder="Module Rank">
+
+                                        @error('rank')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- Action -->
+                                <div class="form-group">
+                                    <label for="inputError" class="col-xs-12 col-sm-3 col-md-3 control-label"></label>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <button type="submit" class="btn btn-success"> <i class="fa fa-save"></i> {{ isset($module) ? 'Update' : 'Save'}}</button>
+                                        <button class="btn btn-gray" type="Reset"> <i class="fa fa-refresh"></i> Reset </button>
+                                    </div>
+                                </div>
+                            </div>
                        </form>
                    </div>
                </div>

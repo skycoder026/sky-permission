@@ -54,19 +54,25 @@
                 <ul class="submenu">
                     <li>
                         <a href="{{ route('modules.index') }}">
-                            Modules
+                            Module
                         </a>
                         <b class="arrow"></b>
                     </li>
                     <li>
                         <a href="{{ route('submodules.index') }}">
-                            Submodules
+                            Submodule
                         </a>
                         <b class="arrow"></b>
                     </li>
                     <li>
                         <a href="{{ route('permission-groups.index') }}">
                             Permission Group
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+                    <li>
+                        <a href="{{ route('permissions.index') }}">
+                            Permission
                         </a>
                         <b class="arrow"></b>
                     </li>

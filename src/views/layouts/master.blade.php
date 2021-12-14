@@ -185,7 +185,6 @@
     <script src="{{ asset('assets/js/ace-elements.min.js') }}"></script>
     <script src="{{ asset('assets/js/ace.min.js') }}"></script>
 
-    <script src="{{ asset('assets/custom-js/chosen-box.js') }}"></script>
     <script src="{{ asset('assets/custom-js/confirm_delete_dialog.js') }}"></script>
 
     <!-- js yield -->
@@ -274,43 +273,43 @@
     </script>
 
 
-<script>
-    let path = window.location.href
+    <script>
+        let path = window.location.href
 
-    path = path.replace('#', '')
+        path = path.replace('#', '')
 
-    let selector = "a[href='" + path + "']"
+        let selector = "a[href='" + path + "']"
 
-    if (!$(selector).closest('li').hasClass('hasQuery')) {
-        path = path.split('?')[0]
-        selector = "a[href='" + path + "']"
-    }
-
-    if ($(selector).length < 1) {
-
-        selector = selector.substring(0, selector.lastIndexOf('/'))
+        if (!$(selector).closest('li').hasClass('hasQuery')) {
+            path = path.split('?')[0]
+            selector = "a[href='" + path + "']"
+        }
 
         if ($(selector).length < 1) {
 
             selector = selector.substring(0, selector.lastIndexOf('/'))
+
+            if ($(selector).length < 1) {
+
+                selector = selector.substring(0, selector.lastIndexOf('/'))
+            }
         }
-    }
 
 
-    let a_tag = $(selector)
+        let a_tag = $(selector)
 
 
 
-    let li_tag = a_tag.closest('li')
+        let li_tag = a_tag.closest('li')
 
-    li_tag.addClass('active')
+        li_tag.addClass('active')
 
-    li_tag.parents('li').add(this).each(function() {
+        li_tag.parents('li').add(this).each(function() {
 
-        $(this).addClass('open')
+            $(this).addClass('open')
 
-    });
-</script>
+        });
+    </script>
 
 
 </body>

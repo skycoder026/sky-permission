@@ -50,7 +50,7 @@
                                </div>
 
                                <div class="form-group">
-                                   <label class="col-sm-3 control-label" for="form-field-1-1"> Sub Module Name </label>
+                                   <label class="col-sm-3 control-label" for="form-field-1-1"> Submodule Name </label>
                                    <div class="col-xs-12 col-sm-8 @error('name') has-error @enderror">
                                        <input type="text" class="form-control" required name="name"
                                            value="{{ isset($submodule) ? $submodule->name : old('name')  }}" placeholder="Submodule Name">
